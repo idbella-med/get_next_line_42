@@ -12,13 +12,13 @@
 
 #include "get_next_line_bonus.h"
 
-char	*ft_read_line(char *save, int fd)
+static char	*ft_read_line(char *save, int fd)
 {
 	char	*buff;
 	ssize_t	redbyt;
 
 	redbyt = 1;
-	buff = malloc(BUFFER_SIZE + 1);
+	buff = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buff)
 		return (NULL);
 	while (!ft_strchr(save, '\n') && redbyt > 0)
@@ -39,7 +39,7 @@ char	*ft_read_line(char *save, int fd)
 	return (save);
 }
 
-char	*ft_get_line(char *save)
+static char	*ft_get_line(char *save)
 {
 	char	*line;
 	size_t	i;
@@ -64,7 +64,7 @@ char	*ft_get_line(char *save)
 	return (line);
 }
 
-char	*ft_get_next(char *save)
+static char	*ft_get_next(char *save)
 {
 	char	*next;
 	size_t	i;
